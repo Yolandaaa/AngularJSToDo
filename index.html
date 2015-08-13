@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Travis Thompson MAT 175</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Dosis:300,400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="todo">
+<!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- Add your site or application content here -->
+<div class="col-md-12 form-container">
+  <section class="container" ng-controller="listIt as list">
+    <form novalidate>
+      <h1>To Do : AngularJS Style</h1>
+      <h2>I have <span ng-bind="list.remaining();"></span> items left</h2>
+      <h4 ng-bind="list.noItem"></h4>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="list.item" required>
+      </div>
+      <div class="form-group">
+        <button class="form-control btn btn-primary" ng-click="list.addItem()">Add It!</button>
+      </div>
+    </form>
+    <ul>
+      <li ng-repeat="item in list.items track by $index">
+        <input type="checkbox" ng-model="item.isDone">
+        <span class="item-done-{{item.isDone}}"><p ng-if="!item.editing" ng-bind="item.text"></p></span>
+        <input ng-if="item.editing" ng-bind="item.text" ng-value="item.text" ng-model="item.text">
+
+        <button ng-click="list.editItem($index)">
+          <span ng-if="!item.editing">Edit</span>
+          <span ng-if="item.editing">Save</span>
+        </button>
+        <button ng-click="list.removeItem($index)"><i class="fa fa-times"></i></button>
+      </li>
+    </ul>
+  </section>
+</div>
+<script src="js/angular.min.js"></script>
+<script src="js/ui-bootstrap-0.13.0.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

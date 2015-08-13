@@ -1,0 +1,55 @@
+html {
+  box-sizing: border-box;
+  background: url("../img/light_wool.png");
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #000;
+  display: block;
+  padding: 20px;
+  margin-top: 25px;
+  font-family: 'Dosis', sans-serif;
+  border-radius: 16px;
+  background: rbga(255, 255, 255, 0.85);
+  box-shadow: 1px 1px 50px #333;
+}
+
+h4 {
+  color: red;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style: none;
+  text-align: left;
+  overflow: hidden;
+  padding: 10px;
+}
+ul li button {
+  float: right;
+}
+ul li:nth-child(even) {
+  background: rgba(236, 236, 236, 0.75);
+}
+ul li:nth-child(odd) {
+  background: rgba(211, 211, 211, 0.75);
+}
+ul li p {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.item-done-true {
+  text-decoration: line-through;
+}
